@@ -1,0 +1,45 @@
+<%- include("../layout/header") %>
+<a class="btn btn-outline-warning" href="/petwars"> GO BACK</a>
+<h1 class="text-center" style="color: #f4f27e"><%= title %></h1>
+<div class="container" style="column-width: 190px">
+  <% for (let i = 0, a = 1; i < 11; i++, a++) { %>
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      break-inside: avoid;
+      width: 71%;
+    "
+  >
+    <%- pets[i].ID == pets[0].ID ? `
+    <h1 class="text-center text-danger mt-5">KING</h1>
+    ` : '' %>
+    <a style="width: 100%" href="/petwars/pets/<%= pets[i].ID %>">
+      <img
+        class="my-2 rounded"
+        src="images/<%= pets[i].image%>"
+        style="max-height: 150px"
+      />
+    </a>
+    <a
+      style="width: 100%; text-align: center; font-weight: 900"
+      class="mb-1"
+      href="/petwars/pets/<%= pets[i].ID %>"
+      ><span style="color: black"><%= a %>.</span>
+      <span style="color: #030637"><%= pets[i].name %> </span></a
+    >
+    <p
+      style="
+        color: #ff9843;
+        font-weight: 700;
+        font-size: larger;
+        text-align: center;
+      "
+    >
+      has won
+      <span style="color: rgb(228, 75, 75)"><%= petWins[i].winprocent %>%</span>
+      of <%= totalBattles[i] %> battles.
+    </p>
+  </div>
+  <% } %> <%- include("../layout/footer") %> <%- include("../layout/footer") %>
+</div>
