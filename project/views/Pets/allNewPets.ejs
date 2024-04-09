@@ -1,5 +1,5 @@
 <%- include("../layout/header") %>
-<a class="btn btn-outline-warning" href="/petwars"> GO BACK</a>
+<a class="btn btn-outline-warning" href="https://pet-war-s.vercel.app/petwars"> GO BACK</a>
 <h1 class="text-center" style="color: #ff9a3c"><%= title %></h1>
 <div class="container" style="column-width: 170px">
   <% for (let i = 0, a = 1; i < 21; i++, a++) { %>
@@ -11,17 +11,17 @@
       width: 100%;
     "
   >
-    <a style="width: 100%" href="/petwars/pets/<%= pets[i].ID %>">
+    <a style="width: 100%" href="https://pet-war-s.vercel.app/petwars/pets/<%= pets[i].ID %>">
       <img
         class="my-2 rounded"
-        src="images/<%= pets[i].image%>"
+        src="https://pet-war-s.vercel.app/images/<%= pets[i].image%>"
         style="max-height: 150px"
       />
     </a>
     <a
       style="width: 100%; font-weight: 900"
       class="mb-4"
-      href="/petwars/pets/<%= pets[i].ID %>"
+      href="https://pet-war-s.vercel.app/petwars/pets/<%= pets[i].ID %>"
       ><%= a %>. <%= pets[i].name %></a
     >
   </div>

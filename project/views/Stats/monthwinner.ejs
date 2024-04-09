@@ -1,13 +1,13 @@
 <%- include("../layout/header", {title: title}) %>
-<a class="btn btn-outline-warning" href="/petwars"> GO BACK</a>
+<a class="btn btn-outline-warning" href="https://pet-war-s.vercel.app/petwars"> GO BACK</a>
 <div class="container text-center">
   <h1 style="color: #f4f27e; font-weight: 600"><%- title %></h1>
   <h1 style="color: #750e21; font-weight: 600">
     <%= pet.name %> <%= specie ? `(${specie.name.toUpperCase()})` : '' %>
   </h1>
-  <a href="/petwars/pets/<%- pet.ID %>"
+  <a href="https://pet-war-s.vercel.app/petwars/pets/<%- pet.ID %>"
     ><img
-      src="images/<%= pet.image%>"
+      src="https://pet-war-s.vercel.app/images/<%= pet.image%>"
       class="mt-3 mb-2 circle"
       style="max-height: 400px"
       alt="petImage"
