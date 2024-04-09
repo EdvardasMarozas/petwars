@@ -107,7 +107,7 @@ module.exports = {
       const nr2 = number[1].ID;
       const [pet1, fields] = await _pets.getById(req.db, nr1);
       const [pet2] = await _pets.getById(req.db, nr2);
-      if (req.header("Referer") == "http://localhost:3000/petwars") {
+      if (req.header("Referer") == "/petwars") {
         const [battleStats] = await _battles.battleStats(
           req.db,
           pet1.ID,

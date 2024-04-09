@@ -49,12 +49,12 @@ app.use(
   })
 );
 
-var IndexRouter = require("./routes/IndexRouter");
-app.use("/", IndexRouter);
+// var IndexRouter = require("./routes/IndexRouter");
+// app.use("/", IndexRouter);
 var AdminRouter = require("./routes/AdminRouter");
 app.use("/", AdminRouter);
 var PetsRouter = require("./routes/PetsRouter");
-app.use("/petwars/", PetsRouter);
+app.use("/", PetsRouter);
 var StatsRouter = require("./routes/StatsRouter");
 app.use("/petwars/", StatsRouter);
 
