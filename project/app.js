@@ -52,11 +52,11 @@ app.use(
 var IndexRouter = require("./routes/IndexRouter");
 app.use("/", IndexRouter);
 var AdminRouter = require("./routes/AdminRouter");
-app.use("/", AdminRouter);
+app.use("https://pet-war-s.vercel.app/", AdminRouter);
 var PetsRouter = require("./routes/PetsRouter");
-app.use("/petwars/", PetsRouter);
+app.use("https://pet-war-s.vercel.app/petwars/", PetsRouter);
 var StatsRouter = require("./routes/StatsRouter");
-app.use("/petwars/", StatsRouter);
+app.use("https://pet-war-s.vercel.app/petwars/", StatsRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
