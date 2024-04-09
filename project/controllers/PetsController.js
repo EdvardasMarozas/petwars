@@ -59,7 +59,7 @@ module.exports = {
     const messages = req.session.messages;
     delete req.session.old;
     delete req.session.messages;
-    res.render("pets/create", { old: old, messages: messages });
+    res.render("Pets/create", { old: old, messages: messages });
   },
   store: async function (req, res, next) {
     const [pet, valid, messages] = petValidateStore(req);
