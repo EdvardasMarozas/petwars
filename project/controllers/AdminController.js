@@ -32,20 +32,20 @@ module.exports = {
             req.session.admin_email = db_admin.email;
             req.session.admin_id = db_admin.id;
 
-            res.redirect("/panel/" + db_admin.id);
+            res.redirect("https://pet-war-s.vercel.app/panel/" + db_admin.id);
           } else {
             messages.push("Incorrect Password!");
 
             req.session.old = admin;
             req.session.messages = messages;
-            res.redirect("/login");
+            res.redirect("https://pet-war-s.vercel.app/login");
           }
         } else {
           messages.push("Email not Found");
 
           req.session.old = admin;
           req.session.messages = messages;
-          res.redirect("/login");
+          res.redirect("https://pet-war-s.vercel.app/login");
         }
       } catch (err) {
         console.log(err);
@@ -54,7 +54,7 @@ module.exports = {
     } else {
       req.session.old = admin;
       req.session.messages = messages;
-      res.redirect("/login");
+      res.redirect("https://pet-war-s.vercel.app/login");
     }
   },
   register: async function (req, res, next) {
@@ -79,7 +79,7 @@ module.exports = {
 
           req.session.old = admin;
           req.session.messages = messages;
-          res.redirect("/register");
+          res.redirect("https://pet-war-s.vercel.app/register");
         } else {
           let password_hash = await bcrypt.hash(admin.password, 10);
 
@@ -91,13 +91,13 @@ module.exports = {
             req.session.admin_id = admin_id;
             req.session.admin_email = admin.email;
 
-            res.redirect("/panel/" + admin_id);
+            res.redirect("https://pet-war-s.vercel.app/panel/" + admin_id);
           } else {
             messages.push("Registration failure");
 
             req.session.old = admin;
             req.session.messages = messages;
-            res.redirect("/register");
+            res.redirect("https://pet-war-s.vercel.app/register");
           }
         }
       } catch (err) {
@@ -107,13 +107,13 @@ module.exports = {
     } else {
       req.session.old = admin;
       req.session.messages = messages;
-      res.redirect("/register");
+      res.redirect("https://pet-war-s.vercel.app/register");
     }
   },
   logout: async function (req, res, next) {
     delete req.session.admin_id;
     delete req.session.admin_email;
-    res.redirect("/login");
+    res.redirect("https://pet-war-s.vercel.app/login");
   },
   panel: async function (req, res, next) {
     const validation = validationResult(req);
@@ -143,7 +143,8 @@ module.exports = {
           res.status(403).send("Access denied");
         }
       } else {
-        res.status(403).send("Log in first! <a href='/login'> login</a>");
+        // res.status(403).send("Log in first! <a href='/login'> login</a>");
+        res.redirect("https://pet-war-s.vercel.app/login");
       }
     } else {
       res.status(404).send("Wrong admin ID");
@@ -188,7 +189,8 @@ module.exports = {
           res.status(403).send("Access denied");
         }
       } else {
-        res.status(403).send("Log in first! <a href='/login'> login</a>");
+        // res.status(403).send("Log in first! <a href='/login'> login</a>");
+        res.redirect("https://pet-war-s.vercel.app/login");
       }
     } else {
       res.status(404).send("Wrong admin ID");
@@ -231,7 +233,7 @@ module.exports = {
             await fs.rename(req.file.path, "public/images/" + file_name);
             await _pets.updateImage(req.db, ID, file_name);
           }
-          res.redirect(`/panel/${admin_ID}/`);
+          res.redirect(`https://pet-war-s.vercel.app/panel/${admin_ID}/`);
         } else {
           req.session.old = pet;
           req.session.messages = messages;
@@ -239,7 +241,7 @@ module.exports = {
             fs.rm(req.file.path);
           }
           res.redirect(
-            req.header("Referer") ?? `/panel/${admin_ID}/${ID}/edit`
+            req.header("Referer") ?? `https://pet-war-s.vercel.app/panel/${admin_ID}/${ID}/edit`
           );
         }
       } else {
@@ -264,7 +266,7 @@ module.exports = {
           }
       });
         await _admin.deletePet(req.db, ID);
-        res.redirect(`/panel/${admin_ID}/`);
+        res.redirect(`https://pet-war-s.vercel.app/panel/${admin_ID}/`);
       } else {
         res.status(404).send("Not Found");
       }

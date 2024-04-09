@@ -86,7 +86,7 @@ module.exports = {
           await fs.rename(req.file.path, "public/images/" + file_name);
           await _pets.updateImage(req.db, petID, file_name);
         }
-        res.redirect("/petwars/pets/" + petID);
+        res.redirect("https://pet-war-s.vercel.app/petwars/pets/" + petID);
       } catch (err) {
         console.log(err);
         res.status(500).send("Server error");
@@ -97,7 +97,7 @@ module.exports = {
       if (req.file) {
         fs.rm(req.file.path);
       }
-      res.redirect("/petwars/create");
+      res.redirect("https://pet-war-s.vercel.app/petwars/create");
     }
   },
   index: async function (req, res, next) {
@@ -107,7 +107,7 @@ module.exports = {
       const nr2 = number[1].ID;
       const [pet1, fields] = await _pets.getById(req.db, nr1);
       const [pet2] = await _pets.getById(req.db, nr2);
-      if (req.header("Referer") == "/petwars") {
+      if (req.header("Referer") == "https://pet-war-s.vercel.app/petwars") {
         const [battleStats] = await _battles.battleStats(
           req.db,
           pet1.ID,
@@ -165,10 +165,10 @@ module.exports = {
         req.body.loser,
         req.body.winner
       );
-      if (req.header("/petwars")) {
+      if (req.header("https://pet-war-s.vercel.app/petwars")) {
         console.log("veikia");
       }
-      res.redirect("/petwars");
+      res.redirect("https://pet-war-s.vercel.app/petwars");
     } catch (err) {
       console.log(err);
       res.status(500).send("Server failure");
