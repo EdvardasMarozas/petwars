@@ -34,9 +34,9 @@
       </h1>
       <div class="d-flex justify-content-center gap-5">
         <div class="pr-5">
-          <form action="/petwars/" method="post">
+          <form action="https://pet-war-s.vercel.app/petwars/" method="post">
             <input type="hidden" name="_method" value="PUT" />
-            <a href="/petwars/pets/<%= winner ? winner.ID : oldPet1.ID %>"
+            <a href="https://pet-war-s.vercel.app/petwars/pets/<%= winner ? winner.ID : oldPet1.ID %>"
               ><img
                 src="https://pet-war-s.vercel.app/images/<%= winner ? winner.image : oldPet1.image%>"
                 style="height: 150px"
@@ -45,9 +45,9 @@
           </form>
         </div>
         <div class="pl-5">
-          <form action="/petwars/" method="post">
+          <form action="https://pet-war-s.vercel.app/petwars/" method="post">
             <input type="hidden" name="_method" value="PUT" />
-            <a href="/petwars/pets/<%= loser ? loser.ID : oldPet2.ID %>"
+            <a href="https://pet-war-s.vercel.app/petwars/pets/<%= loser ? loser.ID : oldPet2.ID %>"
               ><img
                 src="https://pet-war-s.vercel.app/images/<%= loser ? loser.image : oldPet2.image%>"
                 style="height: 150px"
@@ -59,11 +59,11 @@
       <p class="text-center fs-3 text-info">
         <%= stat %> % of people picked
         <br />
-        <a href="/petwars/pets/<%= winner ? winner.ID : oldPet1.ID %>"
+        <a href="https://pet-war-s.vercel.app/petwars/pets/<%= winner ? winner.ID : oldPet1.ID %>"
           ><%= winner ? winner.name : oldPet1.name %></a
         >
         over
-        <a href="/petwars/pets/<%= loser ? loser.ID : oldPet2.ID %>"
+        <a href="https://pet-war-s.vercel.app/petwars/pets/<%= loser ? loser.ID : oldPet2.ID %>"
           ><%= loser ? loser.name : oldPet2.name %>.</a
         >
       </p>
@@ -84,7 +84,7 @@
       </div>
       <div class="d-flex justify-content-evenly gap-5 fw-medium">
         <div class="polaroid pr-5">
-          <form action="/petwars/" method="post">
+          <form action="https://pet-war-s.vercel.app/petwars/" method="post">
             <input type="hidden" name="winner" value="<%= pet1.ID %>" />
             <input type="hidden" name="loser" value="<%= pet2.ID %>" />
             <a class="post_link" href="https://pet-war-s.vercel.app/petwars"
@@ -119,7 +119,7 @@
         </div>
 
         <div class="polaroid pl-5">
-          <form action="/petwars/" method="post">
+          <form action="https://pet-war-s.vercel.app/petwars/" method="post">
             <input type="hidden" name="winner" value="<%= pet2.ID %>" />
             <input type="hidden" name="loser" value="<%= pet1.ID %>" />
             <a class="post_link" href="https://pet-war-s.vercel.app/petwars"
